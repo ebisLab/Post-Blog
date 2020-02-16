@@ -10,28 +10,29 @@ import MainPage from './components/MainPage';
 import Home from './components/Home';
 import Coco from './components/Coco'
 
-// const blogPost= [{
-//    id: 1234566789,
-//   title: 'La Cucaracia',
-//   content: 'This song was from my early years',
-// }]
+const blogPost= [{
+   id: 1234566789,
+  title: 'La Cucaracia',
+  content: 'This song was from my early years',
+  color: 'purple'
+}]
 
 
 
 function App() {
 
-//   const addNewPost = (post) =>{
-//     const newBlog ={
-//       id: Date.now(),
-//       title: post.title,
-//       content: post.content
-//     }
+  const addNewPost = (post) =>{
+    const newBlog ={
+      id: Date.now(),
+      title: post.title,
+      content: post.content
+    }
 
-//     setData([...data, newBlog])
-//   }
+    setData([...data, newBlog])
+  }
 
-// const [data, setData] = useState(blogPost)
-// console.log(data)
+const [data, setData] = useState(blogPost)
+console.log(data)
   return (
     <div className="App">
       {/* <Header /> */}
@@ -47,8 +48,14 @@ function App() {
       {/* {data.map(item => (<Post key={item.id} item={item} /> ))} */}
 
       <Switch>
-      <Route exact path="/" component={Home} />
-      <Route exact path="/formie" component={Form} />
+      <Route exact path="/">
+        <Home data={data}/>
+        </Route>
+      {/* <Route exact path="/formie" component={Form} /> */}
+      <Route exact path="/formie">
+        <Form addNewPost={addNewPost}/>
+      </Route>
+
       <Route exact path="/coco" component={Coco} />
         
 
