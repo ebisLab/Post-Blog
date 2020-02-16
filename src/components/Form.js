@@ -1,33 +1,58 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
+
 
 const Form = (props) =>{
+    
     const [info, setInfo] = useState([{
         title: '',
-        content: ''
+        content: '',
+        color: ''
     }])
+    const history = useHistory();
 
     const changeHandler = e =>{
         setInfo({...info, [e.target.name]: e.target.value})
     }
 
     const handleSubmit= e =>{
+        
 e.preventDefault();
 props.addNewPost(info);
-// setInfo({
-//     title:'', 
-//     content: ''
-// })
+setInfo({
+    title:'', 
+    content: '', 
+    color: ''
+})
+history.push('/')
 
+console.log('info', info)
     }
+    
 
-    console.log('props', props)
-    console.log('info', info)
-
-    return(<div style={{width: '200px', display: 'inline-block'}}>
+    return(
+    
+    <div style={{width: '200px', display: 'inline-block'}}>
         <h2>Hello World</h2>
         <form onSubmit={handleSubmit}> 
-        <label>Title</label>
-        <input htmlFor="content" placeholder="Write your title"/>
+
+        
+        <label htmlFor="title">Title</label>
+        <input  id="title"
+        name="title"
+        type="text"
+        value={info.text}
+        onChange={changeHandler}
+        placeholder="Write your title"/>
+
+<label htmlFor="color">Color</label>
+        <input  id="color"
+        name="color"
+        type="text"
+        value={info.text}
+        onChange={changeHandler}
+        placeholder="color"/>
+
         <textarea 
         id="content"
         name="content"
