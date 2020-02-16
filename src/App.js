@@ -25,7 +25,8 @@ function App() {
     const newBlog ={
       id: Date.now(),
       title: post.title,
-      content: post.content
+      content: post.content, 
+      color: post.color
     }
 
     setData([...data, newBlog])
