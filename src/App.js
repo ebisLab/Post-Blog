@@ -8,6 +8,7 @@ import Another from './components/MainPage';
 import Header from './components/Header'
 import MainPage from './components/MainPage';
 import Home from './components/Home';
+import Coco from './components/Coco'
 
 // const blogPost= [{
 //    id: 1234566789,
@@ -47,8 +48,9 @@ function App() {
 
       <Switch>
       <Route exact path="/" component={Home} />
-        <Route exact path="/somewhere" component={Another} />
-        <Route exact path="/formie" component={Form} />
+      <Route exact path="/formie" component={Form} />
+      <Route exact path="/coco" component={Coco} />
+        
 
       </Switch>
     </div>
