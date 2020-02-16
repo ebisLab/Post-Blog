@@ -1,17 +1,22 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
+import { useHistory } from "react-router-dom";
+
 
 const Form = (props) =>{
+    
     const [info, setInfo] = useState([{
         title: '',
         content: '',
         color: ''
     }])
+    const history = useHistory();
 
     const changeHandler = e =>{
         setInfo({...info, [e.target.name]: e.target.value})
     }
 
     const handleSubmit= e =>{
+        
 e.preventDefault();
 props.addNewPost(info);
 setInfo({
@@ -19,9 +24,10 @@ setInfo({
     content: '', 
     color: ''
 })
+history.push('/')
+
 console.log('info', info)
     }
-    // console.log('info', info)
     
 
     return(
