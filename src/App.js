@@ -8,7 +8,8 @@ import Another from './components/MainPage';
 import Header from './components/Header'
 import MainPage from './components/MainPage';
 import Home from './components/Home';
-import Coco from './components/Coco'
+import Coco from './components/Coco';
+import {useLocalStorage} from './Hooks/useLocalStorage'
 
 const blogPost= [{
    id: 1234566789,
@@ -32,7 +33,8 @@ function App() {
     setData([...data, newBlog])
   }
 
-const [data, setData] = useState(blogPost)
+const [data, setData] = useLocalStorage('info', blogPost)
+// const [data, setData] = useState(blogPost)
 console.log(data)
   return (
     <div className="App">

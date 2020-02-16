@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import { useHistory } from "react-router-dom";
+import {useLocalStorage} from '../Hooks/useLocalStorage'
 
 
 const Form = (props) =>{
     
-    const [info, setInfo] = useState([{
+    const [info, setInfo] = useLocalStorage('item', [{
         title: '',
         content: '',
         color: ''
@@ -41,7 +42,7 @@ console.log('info', info)
         <input  id="title"
         name="title"
         type="text"
-        value={info.text}
+        value={info.title}
         onChange={changeHandler}
         placeholder="Write your title"/>
 
@@ -49,7 +50,7 @@ console.log('info', info)
         <input  id="color"
         name="color"
         type="text"
-        value={info.text}
+        value={info.color}
         onChange={changeHandler}
         placeholder="color"/>
 
