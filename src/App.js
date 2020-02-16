@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Route, Switch} from 'react-router-dom';
 import Form from './components/Form';
 import Post from './components/Post'
 import Another from './components/MainPage';
 import Header from './components/Header'
 import MainPage from './components/MainPage';
+import Home from './components/Home';
 
 // const blogPost= [{
 //    id: 1234566789,
@@ -31,7 +33,7 @@ function App() {
 // console.log(data)
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <MainPage/>
      {/* <nav style={{margin: '20px'}}>
        <Link style={{margin: '20px'}} to="/somewhere">Hello World</Link>
@@ -41,13 +43,14 @@ function App() {
 
       {/* <Form data={data} addNewPost={addNewPost} /> */}
       
-      {/* {data.map(item => (<Post key={item.id} item={item} /> ))}
+      {/* {data.map(item => (<Post key={item.id} item={item} /> ))} */}
 
       <Switch>
+      <Route exact path="/" component={Home} />
         <Route exact path="/somewhere" component={Another} />
         <Route exact path="/formie" component={Form} />
 
-      </Switch> */}
+      </Switch>
     </div>
   );
 }
